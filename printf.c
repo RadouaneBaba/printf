@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 's')
 			{
-				s = va_arg(args, char);
+				s = va_arg(args, char *);
 				write(1, s, _strlen(s));
 				i++;
 			}
