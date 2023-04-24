@@ -24,6 +24,7 @@ int _strlen(char *s)
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int size = 0;
 	va_list args;
 	char *s;
 	char c;
@@ -39,12 +40,14 @@ int _printf(const char *format, ...)
 				c = va_arg(args, int);
 				write(1, &c, 1);
 				i++;
+				size--;
 			}
 			else if (format[i + 1] == 's')
 			{
 				s = va_arg(args, char *);
 				write(1, s, _strlen(s));
 				i++;
+				size += _strlen(s) - 2;
 			}
 			else if (format[i + 1] == '%')
 			{
@@ -61,5 +64,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return (i);
+	size += i;
+	return (size);
 }
