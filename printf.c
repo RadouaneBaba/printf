@@ -20,7 +20,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			a = checker(format[i + 1], args);
-			size+=a;
+			size += a;
+			i++;
 		}
 		else
 		{
