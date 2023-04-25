@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 	char *s;
 	char c;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 
 	while (format[i])
@@ -45,6 +47,8 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				s = va_arg(args, char *);
+				if (s == NULL)
+					write(1, "(null)", 6);
 				write(1, s, _strlen(s));
 				i++;
 				size += _strlen(s);
