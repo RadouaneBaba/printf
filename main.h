@@ -8,5 +8,8 @@
 int _printf(const char *format, ...);
 int checker(char c, va_list args);
 int _strlen(char *s);
+int _putchar(char c);
+int _put_nbr(int n);
+int _nbrlen(int n);
 
 #endif

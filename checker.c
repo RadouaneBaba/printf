@@ -11,6 +11,7 @@ int checker(char c, va_list args)
 {
 	char *s;
 	char a;
+	int b;
 
 	if (c == '%')
 	{
@@ -27,6 +28,12 @@ int checker(char c, va_list args)
 		if (s == NULL)
 			return (write(1, "(null)", 6));
 		return (write(1, s, _strlen(s)));
+	}
+	else if (c == 'd' || c == 'i')
+	{
+		b = va_arg(args, int);
+		_put_nbr(b);
+		return (_nbrlen(b));
 	}
 	else
 	{
