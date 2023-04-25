@@ -40,30 +40,31 @@ int _printf(const char *format, ...)
 				c = va_arg(args, int);
 				write(1, &c, 1);
 				i++;
-				size--;
+				size++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				s = va_arg(args, char *);
 				write(1, s, _strlen(s));
 				i++;
-				size += _strlen(s) - 2;
+				size += _strlen(s);
 			}
 			else if (format[i + 1] == '%')
 			{
 				c = '%';
 				write(1, &c, 1);
+				size++;
 			}
 		}
 		else
 		{
 			write(1, &format[i], 1);
+			size++;
 		}
 
 		i++;
 	}
 
 	va_end(args);
-	size += i;
 	return (size);
 }
