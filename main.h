@@ -6,5 +6,7 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
+int checker(char c, va_list args);
+int _strlen(char *s);
 
 #endif
