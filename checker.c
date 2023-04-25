@@ -30,6 +30,9 @@ int checker(char c, va_list args)
 	}
 	else
 	{
-		return (-1);
+		write(1, "%", 1);
+		write(1, &c, 1);
+		return (2);
+
 	}
 }
