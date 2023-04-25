@@ -25,7 +25,7 @@ int checker(char c, va_list args)
 	{
 		s = va_arg(args, char *);
 		if (s == NULL)
-			write(1, "(null)", 6);
+			return (write(1, "(null)", 6));
 		return (write(1, s, _strlen(s)));
 	}
 	else
